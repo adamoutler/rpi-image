@@ -6,6 +6,16 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      variant:
+        description: 'Variant to build'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - prod
+          - dev
 
 jobs:
   build:
