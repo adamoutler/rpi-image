@@ -285,4 +285,7 @@ jobs:
             Automated NetAlertX Raspberry Pi Image Release.
             
             **Installation:**
-            Use Raspberry Pi Imager and select `repo.json` (URL).
+            Use Raspberry Pi Image v2+:
+            1. press `APP OPTIONS`
+            2. select `Use custom URL`
+            3. enter `https://raw.githubusercontent.com/netalertx/rpi-image/refs/heads/master/rpi-imager/repo.json`
