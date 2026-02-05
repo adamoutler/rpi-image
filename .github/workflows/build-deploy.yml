@@ -95,7 +95,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install -yq qemu-user-static binfmt-support wget unzip parted jq
+          sudo apt-get install -yq qemu-user-static binfmt-support wget unzip parted jq python3-jsonschema
 
       - name: Prepare Official Base Image
         run: |
@@ -202,7 +202,7 @@ jobs:
           fi
           
           jq -n \
-            --arg name "NetAlertX${{ steps.vars.outputs.name_suffix }}${NAME_ENV} ${{ steps.vars.outputs.pr_info }}" \
+            --arg name "NetAlertX${{ steps.vars.outputs.name_suffix }}${NAME_ENV}${{ steps.vars.outputs.pr_info }}" \
             --arg desc "NetAlertX ${{ matrix.variant }} Build (${{ steps.vars.outputs.timestamp }})." \
             --arg date "${{ steps.vars.outputs.timestamp }}" \
             --arg url "$DOWNLOAD_URL" \
@@ -268,6 +268,15 @@ jobs:
           
           # Cleanup fragments
           rm artifacts/fragment_*.json
+
+      - name: Install Validation Dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -yq python3-jsonschema
+
+      - name: Validate repo.json Schema
+        run: |
+          python3 tests/validate_schema.py rpi-imager/repo.json
 
       - name: Commit and Push repo.json
         run: |

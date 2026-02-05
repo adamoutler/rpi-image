@@ -1,7 +1,7 @@
 {
   "os_list": [
     {
-      "name": "NetAlertX ",
+      "name": "NetAlertX",
       "description": "NetAlertX prod Build (2026-02-04).",
       "icon": "https://raw.githubusercontent.com/netalertx/NetAlertX/refs/heads/main/docs/img/NetAlertX_logo.png",
       "release_date": "2026-02-04",
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "name": "NetAlertX (Dev) ",
+      "name": "NetAlertX (Dev)",
       "description": "NetAlertX dev Build (2026-02-04).",
       "icon": "https://raw.githubusercontent.com/netalertx/NetAlertX/refs/heads/main/docs/img/NetAlertX_logo.png",
       "release_date": "2026-02-04",
